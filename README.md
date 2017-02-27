@@ -1,6 +1,6 @@
-# nodejs-crud
+# crud - restify - api
 
-Nodejs with express and mysql conecction
+Nodejs with resitify and mysql conecction
 
 Run following commands in project root directory:
 
@@ -9,5 +9,5 @@ Run following commands in project root directory:
 - npm install -g sequelize-cli (if you don't have it)
 - sequelize db:migrate
 - sequelize db:seed:all
-- tsc 
+- tsc
 - npm run dev
