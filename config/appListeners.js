@@ -38,8 +38,19 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
+/**
+ * Event listener for HTTP server error 404 "NotFound" event.
+ */
+function notFound(req, res, err, cb) {
+  console.log(err);
+  err.body = {code: 404,message:'Endpoint wasn\'t found on server'};
+  res.send(err);
+  return cb();
+};
+
 module.exports.addListeners = function(app){
   app.on('error', onError);
   app.on('listening', onListening);
+  app.on('NotFound', notFound);
   return app;
 }
