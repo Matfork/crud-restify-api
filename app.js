@@ -9,8 +9,14 @@ var app = restify.createServer({
   name: 'NodeJs - Crud - restify'
 });
 
+restify.CORS.ALLOW_HEADERS.push('authorization');
+// restify.CORS.ALLOW_HEADERS.push('Accept-Encoding');
+// restify.CORS.ALLOW_HEADERS.push('Accept-Language');
+restify.CORS.ALLOW_HEADERS.push('verifyonly');
+
 //enabling plugins
 app.use(restify.CORS());
+app.use(restify.fullResponse());
 app.use(restify.queryParser());
 app.use(restify.bodyParser({ mapParams: false }));
 app.use(logger('dev'));
